@@ -21,7 +21,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red, // Warna merah untuk appbar
+        backgroundColor: Colors.red, 
         leading: Icon(Icons.arrow_back),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,7 +37,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(width: 40), // Atur sesuai kebutuhan
+            SizedBox(width: 40), 
           ],
         ),
       ),
@@ -45,16 +45,14 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Logo dan informasi Godrej
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
-                color: Colors.white, // Warna latar belakang putih
+                color: Colors.white, 
                 child: Row(
                   children: [
                     CircleAvatar(
                       radius: 30,
-                      // Logo Godrej
                       backgroundImage: NetworkImage(
                           'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Godrej_Logo.svg/2560px-Godrej_Logo.svg.png'),
                     ),
@@ -80,12 +78,11 @@ class MyHomePage extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            // Aksi ketika tombol diikuti ditekan
                           },
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
-                                    90), // Sesuaikan lebar sesuai kebutuhan
+                                    90), 
                           ),
                           child: Text('Mengikuti'),
                         ),
@@ -93,7 +90,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 35, left: 20), // Sesuaikan kebutuhan
+                          top: 35, left: 20), 
                       child: Icon(Icons.share_outlined),
                     ),
                   ],
@@ -157,7 +154,6 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            // Navigasi produk
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -177,7 +173,6 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      // Aksi ketika tombol "Promosi" ditekan
                     },
                     child: Text(
                       'Promosi',
@@ -186,13 +181,12 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 20, // Sesuaikan tinggi garis bawah
-                    width: 1, // Sesuaikan lebar garis bawah
-                    color: Colors.black, // Sesuaikan warna garis bawah
+                    height: 20, 
+                    width: 1,
+                    color: Colors.black, 
                   ),
                   TextButton(
                     onPressed: () {
-                      // Aksi ketika tombol "Nama Produk" ditekan
                     },
                     child: Text(
                       'Nama Produk',
@@ -203,13 +197,12 @@ class MyHomePage extends StatelessWidget {
                   Icon(Icons.arrow_upward),
                   Icon(Icons.arrow_downward),
                   Container(
-                    height: 20, // Sesuaikan tinggi garis bawah
-                    width: 1, // Sesuaikan lebar garis bawah
-                    color: Colors.black, // Sesuaikan warna garis bawah
+                    height: 20, 
+                    width: 1, 
+                    color: Colors.black, 
                   ),
                   TextButton(
                     onPressed: () {
-                      // Aksi ketika tombol "Terlaris" ditekan
                     },
                     child: Text(
                       'Terlaris',
@@ -226,7 +219,6 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            // Detail produk
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Wrap(
@@ -292,7 +284,6 @@ class MyHomePage extends StatelessWidget {
                   Text('\RP $price'),
                   ElevatedButton(
                     onPressed: () {
-                      // Aksi ketika tombol keranjang ditekan
                     },
                     child: Text('+ Keranjang'),
                   ),
@@ -308,7 +299,6 @@ class MyHomePage extends StatelessWidget {
   Widget buildCategoryImage(String category, String imageUrl) {
     return InkWell(
       onTap: () {
-        // Aksi ketika tombol kategori ditekan
       },
       child: Column(
         children: [
