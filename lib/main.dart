@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -100,6 +101,33 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
 
+             Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SizedBox(
+                height: 200,
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    height: 200,
+                    enlargeCenterPage: true,
+                    autoPlay: true,
+                    aspectRatio: 16 / 9,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enableInfiniteScroll: true,
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    viewportFraction: 0.8,
+                  ),
+                  items: [
+                    buildCarouselImage(
+                        'https://www.hercodigital.id/wp-content/uploads/2021/10/jasa-kolaboratif-marketplace-hercodigital.jpg'),
+                    buildCarouselImage(
+                        'https://lagikreatif.com/wp-content/uploads/2022/06/1.cara-iklan-jasa-di-marketplace-facebook.jpg'),
+                    buildCarouselImage(
+                        'https://d39wptbp5at4nd.cloudfront.net/media/166821_original_marketing-iklan-jawa-pos-group.jpg'),
+                  ],
+                ),
+              ),
+            ),
+
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
@@ -142,59 +170,62 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-Padding(
-  padding: const EdgeInsets.all(16.0),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-      TextButton(
-        onPressed: () {
-          // Aksi ketika tombol "Promosi" ditekan
-        },
-        child: Text(
-          'Promosi',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-      ),
-      Container(
-        height: 20, // Sesuaikan tinggi garis bawah
-        width: 1, // Sesuaikan lebar garis bawah
-        color: Colors.black, // Sesuaikan warna garis bawah
-      ),
-      TextButton(
-        onPressed: () {
-          // Aksi ketika tombol "Nama Produk" ditekan
-        },
-        child: Text(
-          'Nama Produk',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-      ),
-      Icon(Icons.arrow_upward),
-      Icon(Icons.arrow_downward),
-      Container(
-        height: 20, // Sesuaikan tinggi garis bawah
-        width: 1, // Sesuaikan lebar garis bawah
-        color: Colors.black, // Sesuaikan warna garis bawah
-      ),
-      TextButton(
-        onPressed: () {
-          // Aksi ketika tombol "Terlaris" ditekan
-        },
-        child: Text(
-          'Terlaris',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            decoration: TextDecoration.underline, // Tambahkan garis bawah
-            decorationColor: Colors.blue, // Warna garis bawah
-            decorationThickness: 2, // Ketebalan garis bawah
-          ),
-        ),
-      ),
-    ],
-  ),
-),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      // Aksi ketika tombol "Promosi" ditekan
+                    },
+                    child: Text(
+                      'Promosi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    height: 20, // Sesuaikan tinggi garis bawah
+                    width: 1, // Sesuaikan lebar garis bawah
+                    color: Colors.black, // Sesuaikan warna garis bawah
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Aksi ketika tombol "Nama Produk" ditekan
+                    },
+                    child: Text(
+                      'Nama Produk',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
+                    ),
+                  ),
+                  Icon(Icons.arrow_upward),
+                  Icon(Icons.arrow_downward),
+                  Container(
+                    height: 20, // Sesuaikan tinggi garis bawah
+                    width: 1, // Sesuaikan lebar garis bawah
+                    color: Colors.black, // Sesuaikan warna garis bawah
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Aksi ketika tombol "Terlaris" ditekan
+                    },
+                    child: Text(
+                      'Terlaris',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        decoration:
+                            TextDecoration.underline, // Tambahkan garis bawah
+                        decorationColor: Colors.blue, // Warna garis bawah
+                        decorationThickness: 2, // Ketebalan garis bawah
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             // Detail produk
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -275,17 +306,33 @@ Padding(
   }
 
   Widget buildCategoryImage(String category, String imageUrl) {
-    return Column(
-      children: [
-        Image.network(
-          imageUrl,
-          height: 75,
-          width: 75,
+    return InkWell(
+      onTap: () {
+        // Aksi ketika tombol kategori ditekan
+      },
+      child: Column(
+        children: [
+          Image.network(
+            imageUrl,
+            height: 75,
+            width: 75,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(height: 8),
+          Text(category),
+        ],
+      ),
+    );
+  }
+    Widget buildCarouselImage(String imageUrl) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.0),
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
           fit: BoxFit.cover,
         ),
-        SizedBox(height: 8),
-        Text(category),
-      ],
+      ),
     );
   }
 }
