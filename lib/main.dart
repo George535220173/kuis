@@ -118,10 +118,14 @@ class MyHomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  buildCategoryImage('Elektronik', 'https://ds393qgzrxwzn.cloudfront.net/cat1/img/images/0/mrzDoNGUPY.jpg'),
-                  buildCategoryImage('Fashion', 'https://www.mokapos.com/blog/_next/image?url=https%3A%2F%2Fwp.mokapos.com%2Fwp-content%2Fuploads%2F2023%2F02%2Fcara-foto-baju-untuk-jualan-4-1.jpg&w=3840&q=75'),
-                  buildCategoryImage('Baby Wipes', 'https://i5.walmartimages.com/asr/8f7a86a0-8f7d-43f5-9aa9-c3509f4eefc2.2ca338d742530a54c4328e2eb3c37d49.jpeg'),
-                  buildCategoryImage('Buku', 'https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop'),
+                  buildCategoryImage('Elektronik',
+                      'https://ds393qgzrxwzn.cloudfront.net/cat1/img/images/0/mrzDoNGUPY.jpg'),
+                  buildCategoryImage('Fashion',
+                      'https://www.mokapos.com/blog/_next/image?url=https%3A%2F%2Fwp.mokapos.com%2Fwp-content%2Fuploads%2F2023%2F02%2Fcara-foto-baju-untuk-jualan-4-1.jpg&w=3840&q=75'),
+                  buildCategoryImage('Baby Wipes',
+                      'https://i5.walmartimages.com/asr/8f7a86a0-8f7d-43f5-9aa9-c3509f4eefc2.2ca338d742530a54c4328e2eb3c37d49.jpeg'),
+                  buildCategoryImage('Buku',
+                      'https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop'),
                 ],
               ),
             ),
@@ -138,33 +142,65 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    'Promosi',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'Nama Produk',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Icon(Icons.arrow_upward),
-                  Text(
-                    'Terlaris',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
+Padding(
+  padding: const EdgeInsets.all(16.0),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      TextButton(
+        onPressed: () {
+          // Aksi ketika tombol "Promosi" ditekan
+        },
+        child: Text(
+          'Promosi',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+      ),
+      Container(
+        height: 20, // Sesuaikan tinggi garis bawah
+        width: 1, // Sesuaikan lebar garis bawah
+        color: Colors.black, // Sesuaikan warna garis bawah
+      ),
+      TextButton(
+        onPressed: () {
+          // Aksi ketika tombol "Nama Produk" ditekan
+        },
+        child: Text(
+          'Nama Produk',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+      ),
+      Icon(Icons.arrow_upward),
+      Icon(Icons.arrow_downward),
+      Container(
+        height: 20, // Sesuaikan tinggi garis bawah
+        width: 1, // Sesuaikan lebar garis bawah
+        color: Colors.black, // Sesuaikan warna garis bawah
+      ),
+      TextButton(
+        onPressed: () {
+          // Aksi ketika tombol "Terlaris" ditekan
+        },
+        child: Text(
+          'Terlaris',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.underline, // Tambahkan garis bawah
+            decorationColor: Colors.blue, // Warna garis bawah
+            decorationThickness: 2, // Ketebalan garis bawah
+          ),
+        ),
+      ),
+    ],
+  ),
+),
             // Detail produk
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Wrap(
-                spacing: 16.0,
-                runSpacing: 16.0,
+                spacing: 18.0,
+                runSpacing: 18.0,
                 children: [
                   buildProductCard(
                       'Susu Dancow',
@@ -186,6 +222,10 @@ class MyHomePage extends StatelessWidget {
                       'Gajah Minyak Kayu Putih',
                       'https://images.k24klik.com/product/large/apotek_online_k24klik_20210504101159359225_GAJAH-MKP-6OML.jpg',
                       15300.0),
+                  buildProductCard(
+                      'Gajah Minyak Kayu Putih',
+                      'https://id-test-11.slatic.net/p/c84aa30150804e860d3141ea2f14160f.jpg',
+                      15300.0),
                 ],
               ),
             ),
@@ -197,7 +237,7 @@ class MyHomePage extends StatelessWidget {
 
   Widget buildProductCard(String name, String imageUrl, double price) {
     return Container(
-      width: 150,
+      width: 160,
       child: Card(
         elevation: 10,
         child: Column(
@@ -205,7 +245,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             Image.network(
               imageUrl,
-              height: 104,
+              height: 105,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -233,6 +273,7 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
+
   Widget buildCategoryImage(String category, String imageUrl) {
     return Column(
       children: [
