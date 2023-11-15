@@ -52,18 +52,33 @@ class MyHomePage extends StatelessWidget {
                   CircleAvatar(
                     radius: 30,
                     // Logo Godrej
-                    backgroundImage: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Godrej_Logo.svg/2560px-Godrej_Logo.svg.png'),
+                    backgroundImage: NetworkImage(
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Godrej_Logo.svg/2560px-Godrej_Logo.svg.png'),
                   ),
                   SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Godrej'),
-                      Text('Jumlah Pengikut: 1000'),
+                      Text(
+                        'Godrej',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Icon(
+                        Icons.people,
+                      ),
+                      Opacity(
+                        opacity: 0.7,
+                        child: Text('1000 Pengikut'),
+                      ),
                       ElevatedButton(
                         onPressed: () {
                           // Aksi ketika tombol diikuti ditekan
                         },
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  100), // Sesuaikan lebar sesuai kebutuhan
+                        ),
                         child: Text('Ikuti'),
                       ),
                     ],
@@ -77,12 +92,22 @@ class MyHomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text('Semua Produk',style: TextStyle(fontWeight: FontWeight.bold),),
+                ],
+              ),
+            ),
+              Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Semua Produk'),
-                  Text('Promosi'),
-                  Text('Nama Produk'),
-                  Text('Terlaris'),
+                  Text('Promosi', style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text('Nama Produk', style: TextStyle(fontWeight: FontWeight.bold), 
+                  ),
+                  Icon(Icons.arrow_upward),
+                  Text('Terlaris', style: TextStyle(fontWeight: FontWeight.bold),),
                 ],
               ),
             ),
